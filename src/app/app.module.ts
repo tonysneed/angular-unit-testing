@@ -21,17 +21,7 @@ import { MockBackendService } from './mock-backend/mock-backend.service';
     AppRoutingModule,
     FeatureModule
   ],
-  providers: [
-    FeatureService,
-    // MockBackendService,
-    // MockBackend,
-    // BaseRequestOptions,
-    // {
-    //   provide: Http,
-    //   deps: [MockBackend, BaseRequestOptions],
-    //   useFactory: mockBackendFactory,
-    // }
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

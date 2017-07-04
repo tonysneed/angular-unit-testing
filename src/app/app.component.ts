@@ -9,5 +9,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  // constructor(private mockBackend: MockBackendService) { }
+
+  // Bootstrap mock backend service
+  constructor(private mockBackend: MockBackendService) { }
 }
