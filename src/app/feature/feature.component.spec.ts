@@ -49,4 +49,13 @@ describe('FeatureComponent', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('p').textContent).toContain('feature works!');
   }));
+
+  it('should render products in a table element', async(() => {
+    fixture = TestBed.createComponent(FeatureComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('table').textContent).toContain('Espresso');
+    expect(compiled.querySelector('table').textContent).toContain('Macchiato');
+    expect(compiled.querySelector('table').textContent).toContain('Americano');
+  }));
 });
