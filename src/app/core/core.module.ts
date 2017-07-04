@@ -5,6 +5,7 @@ import { MockBackend } from '@angular/http/testing';
 
 import { mockBackendFactory } from '../mock-backend/mock-backend-factory';
 import { MockBackendService } from '../mock-backend/mock-backend.service';
+import { EnvironmentService } from '../shared/environment.service';
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { MockBackendService } from '../mock-backend/mock-backend.service';
       provide: Http,
       deps: [MockBackend, BaseRequestOptions],
       useFactory: mockBackendFactory,
-    }
+    },
+    EnvironmentService
   ]
 })
 export class CoreModule { }

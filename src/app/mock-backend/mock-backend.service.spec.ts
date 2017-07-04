@@ -3,11 +3,11 @@ import 'rxjs/add/operator/map';
 import { fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
 import { BaseRequestOptions, Http } from '@angular/http';
 import { MockBackend } from '@angular/http/testing';
-import { Observable } from 'rxjs/Rx';
+import { PRODUCTS } from 'app/mock-backend/mock-products';
 
+import { environment } from '../../environments/environment';
 import { MockBackendService } from '../mock-backend/mock-backend.service';
 import { Product } from '../shared/product';
-import { PRODUCTS } from 'app/mock-backend/mock-products';
 
 describe('MockBackenbdService', () => {
 
@@ -37,7 +37,7 @@ describe('MockBackenbdService', () => {
     it('should return all products', fakeAsync(inject([Http], (http: Http) => {
 
       const actualProducts = [new Product(), new Product(), new Product()];
-      const productsUrl = 'http://localhost:8080/api/products';
+      const productsUrl = `${environment.mockApiUrl}products`;
       http.get(productsUrl)
         .map(response => response.json())
         .subscribe(result => convertObjects(result, actualProducts));

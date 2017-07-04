@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
 import { PRODUCTS } from '../mock-backend/mock-products';
+import { EnvironmentService } from '../shared/environment.service';
 import { FeatureComponent } from './feature.component';
 import { FeatureService } from './feature.service';
 
@@ -23,6 +24,7 @@ describe('FeatureComponent', () => {
       declarations: [FeatureComponent],
       providers: [
         FeatureService,
+        EnvironmentService,
         {
           provide: Http,
           useValue: mockHttp

@@ -1,9 +1,10 @@
 import { fakeAsync, inject, TestBed, tick } from '@angular/core/testing';
 import { Http } from '@angular/http';
-import { Product } from 'app/shared/product';
+import { Product } from '../shared/product';
 import { Observable } from 'rxjs/Rx';
 
 import { PRODUCTS } from '../mock-backend/mock-products';
+import { EnvironmentService } from '../shared/environment.service';
 import { FeatureService } from './feature.service';
 
 describe('FeatureService', () => {
@@ -19,6 +20,7 @@ describe('FeatureService', () => {
     TestBed.configureTestingModule({
       providers: [
         FeatureService,
+        EnvironmentService,
         {
           provide: Http,
           useValue: mockHttp
