@@ -26,9 +26,7 @@ describe('MockBackenbdService', () => {
     });
   });
 
-  beforeEach(inject([MockBackendService], (service: MockBackendService) => {
-    service.start();
-  }));
+  beforeEach(inject([MockBackendService], () => { }));
 
   it('should be created', inject([MockBackendService], (service: MockBackendService) => {
     expect(service).toBeTruthy();

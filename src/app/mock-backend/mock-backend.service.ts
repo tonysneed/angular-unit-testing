@@ -7,9 +7,11 @@ import { PRODUCTS } from './mock-products';
 @Injectable()
 export class MockBackendService {
 
-  constructor(private backend: MockBackend) { }
+  constructor(private backend: MockBackend) {
+    this.start();
+   }
 
-  start(): void {
+  private start(): void {
     this.backend.connections.subscribe((c: MockConnection) => {
 
       const URL = 'http://localhost:8080/api/products';
