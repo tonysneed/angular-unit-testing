@@ -1,7 +1,11 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
+import { BaseRequestOptions, Http } from '@angular/http';
+import { MockBackend } from '@angular/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
+import { MockBackendService } from './mock-backend/mock-backend.service';
+import { mockBackendFactory } from './mock-backend/mock-backend-factory';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -12,7 +16,17 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-    }).compileComponents();
+      providers: [
+        MockBackendService,
+        MockBackend,
+        BaseRequestOptions,
+        {
+          provide: Http,
+          deps: [MockBackend, BaseRequestOptions],
+          useFactory: mockBackendFactory,
+        }
+      ]
+    });
   }));
 
   it('should create the app', async(() => {

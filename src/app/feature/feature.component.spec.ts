@@ -5,6 +5,7 @@ import { MockBackend } from '@angular/http/testing';
 import { MockBackendService } from '../mock-backend/mock-backend.service';
 import { FeatureComponent } from './feature.component';
 import { FeatureService } from './feature.service';
+import { mockBackendFactory } from '../mock-backend/mock-backend-factory';
 
 describe('FeatureComponent', () => {
 
@@ -23,7 +24,7 @@ describe('FeatureComponent', () => {
         {
           provide: Http,
           deps: [MockBackend, BaseRequestOptions],
-          useFactory: (backend: MockBackend, options: BaseRequestOptions) => new Http(backend, options),
+          useFactory: mockBackendFactory,
         }
       ]
     });

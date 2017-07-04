@@ -7,27 +7,17 @@ import { FeatureRoutingModule } from './feature-routing.module';
 import { FeatureComponent } from './feature.component';
 import { FeatureService } from './feature.service';
 import { MockBackendService } from '../mock-backend/mock-backend.service';
+import { CoreModule } from './../core/core.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    FeatureRoutingModule
+    FeatureRoutingModule,
+    CoreModule
   ],
   declarations: [FeatureComponent],
   providers: [
-    FeatureService,
-    MockBackendService,
-    MockBackend,
-    BaseRequestOptions,
-    {
-      provide: Http,
-      deps: [MockBackend, BaseRequestOptions],
-      useFactory: mockBackendFactory,
-    }
+    FeatureService
   ]
 })
 export class FeatureModule { }
-
-export function mockBackendFactory(backend: MockBackend, options: BaseRequestOptions) {
-  return new Http(backend, options);
-}
