@@ -1,8 +1,11 @@
+import 'rxjs/add/operator/map';
+
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 
 import { Product } from '../shared/product';
+
 
 @Injectable()
 export class FeatureService {

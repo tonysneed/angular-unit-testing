@@ -1,3 +1,5 @@
+import { MockBackendService } from './mock-backend/mock-backend.service';
+
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  // constructor(private mockBackend: MockBackendService) { }
 }

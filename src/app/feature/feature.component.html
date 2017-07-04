@@ -1,3 +1,18 @@
 <p>
   feature works!
 </p>
+<h3>Products</h3>
+<table>
+  <thead>
+    <th>Id</th>
+    <th>Product Name</th>
+    <th>Unit Price</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products">
+      <td>{{product?.ProductId}}</td>
+      <td>{{product?.ProductName}}</td>
+      <td>{{product?.UnitPrice}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,16 +1,32 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { BaseRequestOptions, Http } from '@angular/http';
+import { MockBackend } from '@angular/http/testing';
 
+import { MockBackendService } from '../mock-backend/mock-backend.service';
 import { FeatureComponent } from './feature.component';
+import { FeatureService } from './feature.service';
 
 describe('FeatureComponent', () => {
+
   let component: FeatureComponent;
   let fixture: ComponentFixture<FeatureComponent>;
 
   beforeEach(async(() => {
+
     TestBed.configureTestingModule({
-      declarations: [ FeatureComponent ]
-    })
-    .compileComponents();
+      declarations: [FeatureComponent],
+      providers: [
+        FeatureService,
+        MockBackendService,
+        MockBackend,
+        BaseRequestOptions,
+        {
+          provide: Http,
+          deps: [MockBackend, BaseRequestOptions],
+          useFactory: (backend: MockBackend, options: BaseRequestOptions) => new Http(backend, options),
+        }
+      ]
+    });
   }));
 
   beforeEach(() => {
